@@ -1,57 +1,161 @@
 ---
-title: "Customization"
-description: "This is a customization description"
+title: "Customization Guide"
+description: "Tailoring your chatbot appearence."
 ---
 
-## Customization Guide: Tailoring Your Chatbot
-
-Once your chatbot is set up and embedded on your website, you can customize it to match your brand, improve user engagement, and optimize its functionality. Use the Chatbot Playground in Bizmo.chat to customize your chatbot appearence.
+Once your chatbot is set up and embedded on your website, you can customize it to match your brand, improve user engagement, and optimize its functionality. Use the Chatbot Playground in bizmo.chat to fine-tune your chatbot. Follow the steps below to get started with detailed customization options based on the available features.
 
 
 
-<AccordionGroup>
-  <Accordion title="Appearence" defaultOpen={true}>
-    Customize the visual elements of your chatbot to align with your brand identity.
+<Info>
+  ## Accessing the Chatbot Playground
 
-    * Theme: Adjust the color scheme, fonts, and overall design of the chatbot window. For example, you can match the chatbot’s background and text colors to your website’s design.
-
-    * Position and Size: Modify the chatbot’s position (e.g., bottom-right corner, as shown in the screenshot) and adjust its size to fit your layout.
-
-    * Branding: Add your logo or brand name (e.g., “bizmo AI Assistant” as seen in the screenshot) to personalize the chatbot.
-  </Accordion>
-
-  <Accordion title="Model Settings" defaultOpen={false}>
-    Fine-tune the AI model powering your chatbot to ensure accurate and relevant responses.
-
-    * Language and Tone: Set the language (e.g., English, Spanish) and tone (e.g., formal, casual) to match your audience.
-
-    * Response Speed: Adjust the response time to balance speed and accuracy.
-
-    * Advanced Settings: Use advanced options to tweak the AI’s behavior, such as enabling or disabling certain response types.
-  </Accordion>
-
-  <Accordion title="Default Suggestions" defaultOpen={false}>
-    Provide pre-defined suggestions to guide users and improve interaction.
-
-    * Greeting Message: Set a welcoming message (e.g., “Hello, how can I help you today?”) to greet users when they open the chatbot.
-
-    * Suggested Questions: Add prompts like “What can I help you with?” or “Tell me about your capabilities” to encourage user engagement.
-
-    * Dynamic Suggestions: Configure the chatbot to offer context-aware suggestions based on user behavior or website activity.
-  </Accordion>
-</AccordionGroup>
+  Navigate to the Playground section in the left-hand sidebar of the bizmo.chat dashboard.
+  Select your chatbot (e.g., “Akshaychat”) to enter the customization interface.
+</Info>
 
 
+
+
+
+## Customization Options
+
+The Chatbot Playground allows you to modify various aspects of your chatbot, including its appearance, behavior, and lead collection capabilities. Changes will take effect after saving, ensuring your updates are applied seamlessly. Here’s a detailed breakdown of each customization section:
+
+1\. Chatbot Appearance
+
+Customize the visual elements of your chatbot to align with your brand identity and enhance user experience.
+
+* Choose a Theme:
+
+  * Select between Light and Dark themes to match your website’s design or user preferences.
+
+* Chatbot Header Color:
+
+  * Set the color of the chatbot’s header (e.g., the bar containing the chatbot name). You can keep the default setting or enter a custom color value (e.g., HEX code or RGB).
+
+* Chat Window Color:
+
+  * Adjust the background color of the chatbot window where messages appear. Similar to the header, you can use the “default” setting or specify a custom color to ensure consistency with your brand.
+
+* Primary Color:
+
+  * Define the primary color used for buttons, links, and other interactive elements within the chatbot. You can input a custom color to match your website’s design or use the default setting.
+
+* Button Icon:
+
+  * Upload an image to use as the chat button icon, which users click to open the chatbot. You can replace the default icon (e.g., your brand logo) for a personalized touch.
+
+* Avatar Icon:
+
+  * Upload an image to use as the chatbot’s avatar, displayed next to its messages. You can customize it with your brand’s image to enhance recognition.
+
+* Greeting Text:
+
+  * Customize the initial message users see when opening the chatbot. You can modify this text to reflect your brand’s tone and style, such as “Welcome! How can I assist you today?”
+
+* Chatbot Name:
+
+  * Name your chatbot to personalize its identity. You can change it to something like “Bizmo Support” or any name that resonates with your audience.
+
+* Message Placeholder Text:
+
+  * Set the placeholder text that appears in the user’s input field before they type. You can customize it to, for example, “Type your question here…” to guide users effectively.
+
+2\. Model Settings
+
+Fine-tune the AI model powering your chatbot to ensure accurate, relevant, and engaging responses.
+
+* Model:
+
+  * Select the AI model for your chatbot. Currently, bizmo.chat supports only GPT-4o Mini as the available model. Choose this option from the dropdown menu to power your chatbot’s responses.
+
+* System Prompt:
+
+
+
+
+  Tips for Writing a Good System Prompt:
+
+
+
+
+  Good Examples:
+
+
+
+
+  Bad Examples:
+
+  * Define the system prompt to guide the chatbot’s behavior and tone. This prompt is critical for shaping how the chatbot responds to users. Here are some tips for writing an effective system prompt, along with examples:
+
+  - Be Specific: Clearly define the chatbot’s role, tone, and purpose to ensure consistent and relevant responses.
+
+  - Set Boundaries: Specify what the chatbot can and cannot do to avoid confusion or inappropriate responses.
+
+  - Use Clear Language: Avoid ambiguity to prevent misinterpretation by the AI.
+
+  - Include Context: Provide background information about your business or audience to tailor responses effectively.
+
+  - Test and Iterate: Experiment with different prompts and refine based on user feedback and performance.
+
+  * “You are a friendly customer support assistant for Bizmo.chat, a SaaS chatbot platform. Respond in a professional yet approachable tone, offering concise and helpful answers to user inquiries about chatbot setup, customization, and troubleshooting. Do not provide legal or medical advice.”
+
+  * “You are a knowledgeable travel assistant for Wanderlust Travels. Use an enthusiastic tone, provide detailed travel recommendations, and avoid sharing outdated information. If asked about booking, direct users to our website.”
+
+  - “You are a chatbot. Help users.” (Too vague—lacks role, tone, and specific guidance, leading to generic or irrelevant responses.)
+
+  - “You can do anything. Be funny.” (Overly broad and lacks boundaries, potentially resulting in inconsistent or inappropriate responses.)
+
+* Temperature:
+
+  * Adjust the creativity and randomness of the chatbot’s responses using the temperature slider. Slide it to your preferred setting—lower (closer to 0) for more deterministic, focused responses, and higher (closer to 1) for more creative, varied interactions.
+
+3\. Default Suggestions
+
+Provide pre-defined suggestions to guide users and improve interaction, leveraging the chatbot’s trained context to respond effectively.
+
+* Add Default Suggestions:
+
+  * You can add up to three default suggestions that appear as clickable options for users when they open the chatbot. These suggestions prompt users to engage with the chatbot using questions or statements that align with your trained context, ensuring relevant and helpful responses.
+
+  * To add suggestions:
+
+    * Start by clicking the “+” button under “Start by adding a suggestion.”
+
+    * Enter up to three suggestions in the provided fields. For example:
+
+      * “What can you help me with?”
+
+      * “Tell me about your capabilities.”
+
+      * “How do I get started?”
+
+    * These suggestions will appear as buttons or prompts in the chatbot interface, encouraging users to interact based on your trained data.
+
+  * Tips for Effective Suggestions:
+
+    * Be Relevant: Ensure suggestions align with your chatbot’s trained context and the most common user inquiries.
+
+    * Keep It Concise: Use short, clear phrases to make suggestions easy to understand and act on.
+
+    * Encourage Engagement: Craft suggestions that spark curiosity or address frequent user needs, such as product information, troubleshooting, or onboarding.
 
 4\. Lead Collection
 
-Capture user information to generate leads and improve marketing efforts.
+Capture user information to generate leads and improve marketing efforts, ensuring compliance and effectiveness.
 
-* Forms: Enable lead capture forms within the chatbot to collect names, emails, or other contact details.
+* Choose What Information to Collect from Leads:
 
-* Privacy Settings: Ensure compliance with data protection regulations (e.g., GDPR, CCPA) by configuring consent prompts and data retention policies.
+  * Enable or disable the collection of specific user details using toggle switches. Options include:
 
-* Integration: Sync collected leads with your CRM or marketing tools for seamless follow-up.
+    * Name: Toggle on or off to collect users’ names.
+
+    * Email: Toggle on or off to collect email addresses for follow-up.
+
+    * Phone: Toggle on or off to collect phone numbers for direct contact.
+
+  * You can selectively activate these fields based on your needs, ensuring you only collect necessary information while respecting user privacy.
 
 Saving Your Changes
 
@@ -61,17 +165,17 @@ Saving Your Changes
 
 Testing Your Customizations
 
-* Interact with the chatbot directly in the Playground (as shown in the screenshot, with the chatbot window on the right) to test its responses, appearance, and functionality.
+* Interact with the chatbot directly in the Playground to test its responses, appearance, and functionality.
 
-* Use the “Ask me anything…” input field to simulate user queries and verify that the chatbot behaves as expected.
+* Use the input field (e.g., with placeholder text like “Ask me anything…”) to simulate user queries and verify that the chatbot behaves as expected, including responses to default suggestions.
 
-* If needed, reset or revert changes using the settings menu or contact support for assistance.
+* If needed, reset or revert changes using the settings menu or contact bizmo.chat support for assistance.
 
 Tips for Effective Customization
 
-* Keep It User-Friendly: Ensure the chatbot’s design and responses are intuitive and engaging for your audience.
+* Keep It User-Friendly: Ensure the chatbot’s design, colors, responses, and suggestions are intuitive and engaging for your audience.
 
-* Test Regularly: Periodically test your chatbot to ensure it aligns with user needs and website updates.
+* Test Regularly: Periodically test your chatbot to ensure it aligns with user needs, website updates, and the trained context for default suggestions.
 
 * Monitor Analytics: Use the Analytics section in your dashboard to track chatbot performance and refine customizations based on user interactions.
 
