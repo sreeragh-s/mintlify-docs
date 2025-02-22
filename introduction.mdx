@@ -31,11 +31,11 @@ Bizmo.Chat is a user-friendly platform that empowers businesses to create AI-pow
 
 * **Settings**: Customize platform settings to suit your preferences.
 
-Quickstart Guide: Setting Up Your Chatbot
+## Quickstart Guide: Setting Up Your Chatbot
 
 Welcome to \[Your SaaS App Name]! Follow these simple steps to get your chatbot up and running on your website in minutes.
 
-Step 1: Configure Your Domain
+### Step 1: Configure Your Domain
 
 Before embedding your chatbot, you need to specify the domain where it will be used. This ensures your chatbot operates securely and only on authorized websites.
 
@@ -47,7 +47,7 @@ Before embedding your chatbot, you need to specify the domain where it will be u
 
 4. Once configured, you’ll see a checkmark indicating your domain is set up correctly.
 
-Step 2: Get Your Embed Script
+### Step 2: Get Your Embed Script
 
 To add your chatbot to your website, you’ll need to embed a script. This script will load your chatbot seamlessly into your site.
 
@@ -55,181 +55,50 @@ To add your chatbot to your website, you’ll need to embed a script. This scrip
 
 2. Copy the provided embed script by clicking the Copy button. The script will look something like this:
 
-3. `<script>`
-
-
-
-
-   `    let chatFrameId = localStorage.getItem('chatFrameId');`
-
-
-
-
-   `    if (!chatFrameId) {`
-
-
-
-
-   `        chatFrameId = 'cf-' + Math.random().toString(36).substr(2, 9);`
-
-
-
-
-   `        localStorage.setItem('chatFrameId', chatFrameId);`
-
-
-
-
-   `    }`
-
-
-
-
-
-   `    const iframe = document.createElement('iframe');`
-
-
-
-
-   `    const iframeStyles = (styleString) => {`
-
-
-
-
-   `        const style = document.createElement('style');`
-
-
-
-
-   `        style.textContent = styleString;`
-
-
-
-
-   `        document.head.append(style);`
-
-
-
-
-   `    }`
-
-
-
-
-
-   `    iframeStyles('.chat-frame {`
-
-
-
-
-   `        position: fixed;`
-
-
-
-
-   `        bottom: 20px;`
-
-
-
-
-   `        right: 20px;`
-
-
-
-
-   `        border: none;`
-
-
-
-
-   `    }');`
-
-
-
-
-
-   `    iframe.src = "https://app.bizmo.chat/chatframe";`
-
-
-
-
-   `    iframe.classList.add('chat-frame');`
-
-
-
-
-   `    document.body.append(iframe);`
-
-
-
-
-
-   `    window.addEventListener("message", (e) => {`
-
-
-
-
-   `        if (e.origin === "https://app.bizmo.chat") return null;`
-
-
-
-
-   `        let dimensions = JSON.parse(e.data);`
-
-
-
-
-   `        iframe.width = dimensions.width;`
-
-
-
-
-   `        iframe.height = dimensions.height;`
-
-
-
-
-   `        iframe.contentWindow.postMessage({`
-
-
-
-
-   `            type: "INIT",`
-
-
-
-
-   `            id: "akshaychat",`
-
-
-
-
-   `            chatFrameId: chatFrameId`
-
-
-
-
-   `        }, "https://app.bizmo.chat");`
-
-
-
-
-   `    });`
-
-
-
-
-   `</script>`
-
-4.
-
-
-   Paste this script into the \<head> section of your website’s HTML code.
-
-Next Steps
+```javascript
+<script>
+    let chatFrameId = localStorage.getItem('chatFrameId');
+    if (!chatFrameId) {
+        chatFrameId = 'cf-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('chatFrameId', chatFrameId);
+    }
+
+    const iframe = document.createElement('iframe');
+    const iframeStyles = (styleString) => {
+        const style = document.createElement('style');
+        style.textContent = styleString;
+        document.head.append(style);
+    }
+
+    iframeStyles('.chat-frame {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        border: none;
+    }');
+
+    iframe.src = "https://app.bizmo.chat/chatframe";
+    iframe.classList.add('chat-frame');
+    document.body.append(iframe);
+
+    window.addEventListener("message", (e) => {
+        if (e.origin === "https://app.bizmo.chat") return null;
+        let dimensions = JSON.parse(e.data);
+        iframe.width = dimensions.width;
+        iframe.height = dimensions.height;
+        iframe.contentWindow.postMessage({
+            type: "INIT",
+            id: {your-chatbot-id},
+            chatFrameId: chatFrameId
+        }, "https://app.bizmo.chat");
+    });
+</script>}
+```
+
+1. &#x20; Paste this script into the \<head> section of your website's HTML code
+
+## Next Steps
 
 Once the script is added, your chatbot will appear on your website. Customize your chatbot’s appearance, behavior, and responses in the Dashboard to match your needs. If you encounter any issues, refer to our troubleshooting guide or contact our support team.
-
-Happy chatting!![🚀](https://abs-0.twimg.com/emoji/v2/svg/1f680.svg "Rocket")
 
 ###
