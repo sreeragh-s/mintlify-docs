@@ -57,42 +57,90 @@ Follow these simple steps to get your chatbot up and running on your website in 
 
     ```javascript
     <script>
-        let chatFrameId = localStorage.getItem('chatFrameId');
-        if (!chatFrameId) {
-            chatFrameId = 'cf-' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('chatFrameId', chatFrameId);
-        }
-
-        const iframe = document.createElement('iframe');
-        const iframeStyles = (styleString) => {
-            const style = document.createElement('style');
+            const iframe = document.createElement("iframe")
+            iframe.style.colorScheme = 'light';
+            const isMobile = window.innerWidth <= 768;
+            const iframeStyles = (styleString) => {
+            const style = document.createElement("style");
             style.textContent = styleString;
             document.head.append(style);
         }
-
-        iframeStyles('.chat-frame {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            border: none;
-        }');
-
-        iframe.src = "https://app.bizmo.chat/chatframe";
-        iframe.classList.add('chat-frame');
-        document.body.append(iframe);
-
-        window.addEventListener("message", (e) => {
-            if (e.origin === "https://app.bizmo.chat") return null;
-            let dimensions = JSON.parse(e.data);
-            iframe.width = dimensions.width;
-            iframe.height = dimensions.height;
-            iframe.contentWindow.postMessage({
-                type: "INIT",
-                id: {your-chatbot-id},
-                chatFrameId: chatFrameId
-            }, "https://app.bizmo.chat");
-        });
-    </script>}
+            iframeStyles(\`.chat-frame {
+                      position: fixed;
+                      bottom: 20px;
+                      border: none;
+                      right: 20px;
+                      z-index: 1000;
+                  }
+                  .chat-frame-mobile-open {
+                      position: fixed !important;
+                      top: 0 !important;
+                      left: 0 !important;
+                      right: 0 !important;
+                      bottom: 0 !important;
+                      width: 100vw !important;
+                      height: 100vh !important;
+                      max-width: 100% !important;
+                      max-height: 100% !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      border: none !important;
+                      z-index: 9999 !important;
+                  }
+                  \`);
+            const chatFrameUrl = "https://app.bizmo.chat/chatframe";
+            const targetOrigin = "https://app.bizmo.chat";
+            iframe.src = chatFrameUrl;
+            iframe.classList.add("chat-frame");
+            document.body.append(iframe);
+            iframe.allowTransparency = "true";
+            const sendInitMessage = (currentIsMobile) => {
+                iframe.contentWindow.postMessage({
+                    type: "INIT",
+                    id: "${id}",
+                    domain: window.location.origin,
+                    isMobile: currentIsMobile !== undefined 
+                    ? currentIsMobile : isMobile
+                }, targetOrigin);
+            };
+            iframe.onload = () => {
+                sendInitMessage();
+                
+                setTimeout(() => {
+                    sendInitMessage();
+                }, 1000);
+            };
+            window.addEventListener("resize", () => {
+                const currentIsMobile = window.innerWidth <= 768;
+                if (currentIsMobile !== isMobile) {
+                    sendInitMessage(currentIsMobile);
+                }
+            });
+            window.addEventListener("message", (e) => {
+                if (e.origin !== targetOrigin) return null;
+                try {
+                    let data = JSON.parse(e.data);
+                    if (data.width && data.height) {  
+                        iframe.width = data.width;
+                        iframe.height = data.height;
+                        
+                        if (isMobile && data.isOpen) {
+                            iframe.classList.add("chat-frame-mobile-open");
+                            document.body.style.overflow = "hidden";
+                        } else {
+                            iframe.classList.remove("chat-frame-mobile-open");
+                            document.body.style.overflow = "";
+                        }
+                        sendInitMessage();
+                    }
+                    if (data.requestInit) {
+                        sendInitMessage();
+                    }
+                } catch (err) {
+                    console.error("Error processing message:", err);
+                }
+            });
+        </script>
     ```
   </Step>
 
