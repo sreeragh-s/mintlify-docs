@@ -25,13 +25,11 @@
               "inbox",
               "analytics",
               "accounts",
-              "collabarator",
+              "collaborator",
               "forms",
               "billing"
-              
             ]
           }
-          
         ]
       }
     ]
@@ -55,7 +53,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/bizmo_chat",
+      "x": "https://x.com/bizmo_chat"
     }
   }
 }
